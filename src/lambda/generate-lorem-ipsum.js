@@ -2,8 +2,6 @@ import { WORDS } from "./words";
 export function handler(event, context, callback) {
   const { queryStringParameters } = event;
   const { paragraphs = 0, words = 0 } = queryStringParameters;
-  console.log("queryStringParameters", event.queryStringParameters);
-  console.log("p", paragraphs, "w", words);
 
   let isParagraph = Boolean(paragraphs);
   let count;
@@ -36,7 +34,6 @@ export function generateLoremIpsum(isParagraph, count) {
     return generateParagraphs(count);
   } else {
     console.log(`Trying to return ${count} words`);
-    console.log([...new Set(WORDS)]);
     return generateWords(count);
   }
 }
@@ -46,7 +43,6 @@ export function generateWords(wordCount) {
   console.log(wordCount);
 
   for (var i = 0; i < wordCount; i++) {
-    console.log("i", i);
     words.push(WORDS[getRandomInt()]);
   }
   const formattedWords = `<p>${words.join(" ")}</p>`;

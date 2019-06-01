@@ -31,7 +31,7 @@ class LambdaCall extends Component {
             {loading ? "Loading..." : "Generate Lorem Ipsum"}
           </button>
           <br />
-          {console.log(msg)}
+
           {msg && parse(msg)}
         </p>
       </>
