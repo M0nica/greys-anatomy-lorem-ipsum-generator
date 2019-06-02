@@ -13,9 +13,6 @@ export function handler(event, context, callback) {
   } else if (words > 0) {
     isParagraph = false;
     count = words;
-  } else {
-    isParagraph = true;
-    count = 4;
   }
 
   let response;
@@ -45,8 +42,18 @@ export function generateWords(wordCount) {
   let words = [];
   console.log(wordCount);
 
-  for (var i = 0; i < wordCount; i++) {
-    words.push(WORDS[getRandomInt()]);
+  var i = 0;
+  while( i < wordCount) {
+    var wordsToAdd = WORDS[getRandomInt()];
+    var wordsInWordsToAdd = wordsToAdd.split(" ").length;
+
+    console.log(wordsInWordsToAdd)
+
+    // make sure we don't exceed word count
+    if (i + wordsInWordsToAdd <= wordCount){
+      words.push(wordsToAdd);
+      i += wordsInWordsToAdd;
+    }
   }
   const formattedWords = `<p>${words.join(" ")}</p>`;
 

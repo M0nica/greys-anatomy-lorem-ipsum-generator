@@ -6,9 +6,10 @@ import parse from "html-react-parser";
 class LambdaCall extends Component {
   constructor(props) {
     super(props);
-    this.state = { loading: false, msg: null };
+    this.state = { loading: false, msg: null, paragraphValue: 4,  wordValue: 0};
     this.handleParagraphChange = this.handleParagraphChange.bind(this);
     this.handleWordChange = this.handleWordChange.bind(this);
+
   }
 
   handleClick = api => e => {
@@ -21,14 +22,25 @@ class LambdaCall extends Component {
   };
 
   handleParagraphChange(event) {
-    this.setState({paragraphValue: event.target.value});
-    this.setState({wordValue: 0});
-
+    if(event.target.value == 0 && this.state.wordValue === 0 ){
+      this.setState({wordValue: 1});
+      this.setState({paragraphValue: event.target.value});
+    }
+    else{
+      this.setState({paragraphValue: event.target.value});
+      this.setState({wordValue: 0});
+    }
   }
 
   handleWordChange(event) {
-    this.setState({wordValue: event.target.value});
-    this.setState({paragraphValue: 0});
+    if(event.target.value == 0 && this.state.paragraphValue === 0 ){
+      this.setState({paragraphValue: 1});
+      this.setState({wordValue: event.target.value});
+    }
+    else{
+      this.setState({wordValue: event.target.value});
+      this.setState({paragraphValue: 0});
+    }
   }
 
 
