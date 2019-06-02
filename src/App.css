@@ -3,30 +3,97 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #7dc4ca;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #000;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p {
+  margin: 2em;
+  line-height: 1.5;
+}
+
+#grey-title {
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 24px;
+  border: 1px solid #a12727;
+  border-radius: 8px;
+  background: #ff4a4a;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ff4a4a),
+    to(#992727)
+  );
+  background: -moz-linear-gradient(top, #ff4a4a, #992727);
+  background: linear-gradient(to bottom, #ff4a4a, #992727);
+  -webkit-box-shadow: #ff5959 0px 0px 40px 0px;
+  -moz-box-shadow: #ff5959 0px 0px 40px 0px;
+  box-shadow: #ff5959 0px 0px 40px 0px;
+  text-shadow: #591717 1px 1px 1px;
+  font: normal normal bold 20px arial;
+  color: #ffffff;
+  text-decoration: none;
+}
+.button:hover,
+.button:focus {
+  background: #ff5959;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ff5959),
+    to(#b62f2f)
+  );
+  background: -moz-linear-gradient(top, #ff5959, #b62f2f);
+  background: linear-gradient(to bottom, #ff5959, #b62f2f);
+  color: #ffffff;
+  text-decoration: none;
+}
+.button:active {
+  background: #982727;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#982727),
+    to(#982727)
+  );
+  background: -moz-linear-gradient(top, #982727, #982727);
+  background: linear-gradient(to bottom, #982727, #982727);
+}
+.button:before {
+  content: "\0000a0";
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  margin: 0 4px -6px -4px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFAklEQVRIibWVeWyURRjGfzPft1ev3e1B7fYyWLQQrQsxNEUsKCiGy3hSj+AfIiLBIxL/AbSKiTEiAdRgPFE5NCaCB3gUQYvikRjQAgqNoizFbrtluy60LPsd4x/ttywFjIn6JJNM5pn3fWaeeWdGAJL/EU5y+xy8/W/7+llI6fRXgxuY6vF6rysuKRnj8XqH2WAn+/ujHd3d3x8zjHfbYPsmMIfGOn0xZBBAvgIIuCEUCi0bWV9/fkV9PVJKlFIACCEwDYP21la+27Xrp597ehY+Ay1nc8IRyOB10D1u96rLxo6dd8GkScQjEfbt3Gn/dPRotOfEiQ4pBCW5uaGLSkpCdRMmyPzCQr7dvNne3Nb21Ce23fzDWUQyAm+AfMftfrVryhRlzJ+vtldXG/cJsSkMEwUUDFqqeyFnKoxdpOvrv6ittawHH1R7GxrUQimXuU7lk2cIrBdibmT0aJWeNUtt8Pv/nAh3OOf0GExs1rRHF2nao3Og1omdC9PfGTas15o9W31ZU6PuhKazCch1ENgZDB61Z8xQnxYWnmyEWxwOkBsCgd19K1eq3sWL1QKP5/1sbgFM3lZebpjTpqlVubmHKwZ2KwGZKVMJs0eWlRV2HTjAe/H4uh2w0eEA22NZui8cJq+sDAk5WRzPw/bWzs7ViSNHuKq4uGL8wOKcvAMocrluDCjFj4cPpz6CFQyUXubAtHQaolHo7kYbrKYs2H/a9opdBw+atT4fJULc7BA6wBrwFgpRp3p72Xfy5P5D0L5GyqkBv/8e2zAw02lyDaNKdHUhYjEu0vXwS17vJlvT6FMqvTuReOI32Bvp79+rJRLh4ZpWh2nmAP06gIACj2nmGb29JG37F8AsLCq6e8bq1TPRNOjshGgUdeIEMhplbihUTDA4k2CQuMvF7i1bIh/AwkbTbLd7e8NFllUA5AHH9YyRQgxYMXgrpcsFbjcYBtg2WBa0tUFLC3g8p8zxeBCDFSOEACFQQkiUkhmLkpBMud39Lr+/oCgWq8Ky5KFodP1r8+adb5mmtAyD2pycC68sLfVaeXm8Hosl48nk73ZHB31g/wqfLwIZcLlqZCBATzx+nHQ65ZSqBPjY691pjxqlWvz+Y/UQGhzXnfZZVdUee9o0ZYbDqlnTtjHwTjm8XAIVW4uLTxq1tepuKb9xFp+poq5U6t2Ey8UllZV502HO4LDpNN3ng/JyCIXQNM3O5gDbq2kPjK6udu9Xiohtb8Gx2hGIwZv7YrFEaXU1l1dWPvwQ1JF1mWwp7XQwSCoYRJ3+YspmGDeupub+QGkpH3d1Jb6CdVmxp0ReFOL+Q42NKt3UpN4vKzvUDGGHe1qI6UtdrrWPaNraa2C6E7cUxm8cPjxm3X672jFmjLoKlmQnP01gJuhrfL63um66SRn33qu+DIf7ntP1x5fCeVOy5j0F8kmoWu7xLN/R0GBYCxaovddeq26V8sPB8swg+z+QAHeAd7zP9/Kkq6++7YJwmHgsxoE9e1KdR460JZPJgwgh84PBmvMqKuourqvT8/Pz+ebrr3mhtfWDjZZ1Vwri5xLI7GgEyNuEmHPpiBFPjLniiuKKkSORmoayB6YJKTHTadrb2vi0tbXnk46O5VvhWSDFP/jRMrgECidDU3Fu7vXllZWjCvLzC0yliCUSx9sjkf0H0+ktW+HtFPxxrhxnWPQ38Gb5mwL6z5V0KIYmlv9l/y9CEv1bjuKpEgAAAABJRU5ErkJggg==")
+    no-repeat left center transparent;
+  background-size: 100% 100%;
 }
