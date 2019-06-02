@@ -6,9 +6,12 @@ export function handler(event, context, callback) {
   let isParagraph = Boolean(paragraphs);
   let count;
 
-  if (paragraphs > 1) {
+  console.log(queryStringParameters)
+
+  if (paragraphs >= 1) {
     count = paragraphs;
   } else if (words > 0) {
+    isParagraph = false;
     count = words;
   } else {
     isParagraph = true;
@@ -34,7 +37,7 @@ export function generateLoremIpsum(isParagraph, count) {
     return generateParagraphs(count);
   } else {
     console.log(`Trying to return ${count} words`);
-    return generateWords(count);
+    return [generateWords(count)];
   }
 }
 
