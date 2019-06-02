@@ -1,4 +1,4 @@
-This website generates lorem ipsum text inspired by [Grey's Anatomy](https://greysanatomy.fandom.com/wiki/Grey%27s_Anatomy_Universe_Wiki) and medical terms. Lorem ipsum is nonsense text that can be used as place holder copy in designs. Additional terms can be added in the [`/lambda/words.js`](https://github.com/M0nica/greys-anatomy-lorem-ipsum-generator/blob/master/src/lambda/words.js) file 
+`greys-anatomy-lorem-ipsum-generator` is a website that generates lorem ipsum text inspired by [Grey's Anatomy](https://greysanatomy.fandom.com/wiki/Grey%27s_Anatomy_Universe_Wiki) and medical terms. Lorem ipsum is nonsense text that can be used as place holder copy in designs. Additional terms can be added in the [`/lambda/words.js`](https://github.com/M0nica/greys-anatomy-lorem-ipsum-generator/blob/master/src/lambda/words.js) file 
 
 
 ![screenshot of lorem ipsum generator](https://github.com/M0nica/greys-anatomy-lorem-ipsum-generator/blob/master/public/lorem-ipsum-generator-screenshot.png?raw=true)
