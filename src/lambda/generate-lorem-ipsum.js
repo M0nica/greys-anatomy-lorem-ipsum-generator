@@ -47,8 +47,6 @@ export function generateWords(wordCount) {
     var wordsToAdd = WORDS[getRandomInt()];
     var wordsInWordsToAdd = wordsToAdd.split(" ").length;
 
-    console.log(wordsInWordsToAdd)
-
     // make sure we don't exceed word count
     if (i + wordsInWordsToAdd <= wordCount){
       words.push(wordsToAdd);
