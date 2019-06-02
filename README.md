@@ -4,7 +4,7 @@
 ![screenshot of lorem ipsum generator](https://github.com/M0nica/greys-anatomy-lorem-ipsum-generator/blob/master/public/lorem-ipsum-generator-screenshot.png?raw=true)
 
 
-This project is based on latest versions of [Create React App v3](https://github.com/facebookincubator/create-react-app) and [netlify-lambda v1](https://github.com/netlify/netlify-lambda).
+This project's infra boilerplate was[create-react-app-lambda](https://github.com/netlify/create-react-app-lambda) which was created from latest versions of [Create React App v3](https://github.com/facebookincubator/create-react-app) and [netlify-lambda v1](https://github.com/netlify/netlify-lambda).
 
 The main addition to base Create-React-App is a new folder: `src/lambda`. Each JavaScript file in there will be built for Lambda function deployment in `/built-lambda`, specified in [`netlify.toml`](https://www.netlify.com/docs/netlify-toml-reference/).
 
