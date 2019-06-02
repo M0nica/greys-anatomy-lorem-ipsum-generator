@@ -17,7 +17,9 @@ export function handler(event, context, callback) {
 
   let response;
   try {
-    response = generateLoremIpsum(isParagraph, count).join(" ");
+    response = isParagraph
+      ? generateLoremIpsum(isParagraph, count).join(" ")
+      : generateLoremIpsum(isParagraph, count);
   } catch (error) {
     console.log(error);
   }
