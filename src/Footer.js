@@ -11,10 +11,10 @@ export class Footer extends React.Component {
           <a href="https://github.com/M0nica/greys-anatomy-lorem-ipsum-generator">
             View Code
           </a>
-          <p>
-            Copyright to "Grey's Anatomy" is held by various outside entities
-            and is provided here for educational purposes only.
-          </p>
+        </p>
+        <p>
+          Copyright to "Grey's Anatomy" is held by various outside entities
+          and is provided here for educational purposes only.
         </p>
       </div>
     );

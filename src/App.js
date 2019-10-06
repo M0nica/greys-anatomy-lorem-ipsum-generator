@@ -30,10 +30,8 @@ class LambdaCall extends Component {
           >
             {loading ? "Loading..." : "Generate Lorem Ipsum"}
           </button>
-          <br />
-
-          {msg && parse(msg)}
         </p>
+        {msg && parse(msg)}
       </>
     );
   }
