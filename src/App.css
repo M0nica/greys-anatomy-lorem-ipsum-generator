@@ -97,3 +97,35 @@ p {
     no-repeat left center transparent;
   background-size: 100% 100%;
 }
+
+.lambda-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings {
+  border: solid 1px #ff4a4a;
+  box-shadow: 4px 4px #ff6161;
+  display: flex;
+  justify-content: space-between;
+  margin: 2px;
+  padding: 5%;
+}
+
+.settings-input {
+  border-radius: 5px;
+  border: solid 2px #717070;
+  color: #717070;
+  font-weight: bold;
+  text-align: center;
+  width: 25%;
+}
+
+.settings-select {
+  border-radius: 5px;
+  border: solid 2px #717070;
+  color: #717070;
+  font-weight: bold;
+  text-align: center;
+  width: 65%;
+}

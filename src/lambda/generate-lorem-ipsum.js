@@ -6,7 +6,7 @@ export function handler(event, context, callback) {
   let isParagraph = Boolean(paragraphs);
   let count;
 
-  if (paragraphs > 1) {
+  if (paragraphs > 0) {
     count = paragraphs;
   } else if (words > 0) {
     count = words;
