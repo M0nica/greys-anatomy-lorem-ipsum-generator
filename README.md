@@ -11,9 +11,10 @@ The main addition to base Create-React-App is a new folder: `src/lambda`. Each J
 
 ## Local Development
 
-Before developing, clone the repository and run `yarn` from the root of the repo to install all dependencies.
+Before developing, fork the repository and run `yarn` from the root of the repo to install all dependencies.
 
 ### Start each server individually
+Both need to be run at the same time, in separate windows, in order for the application to properly run locally 
 
 **Run the functions dev server**
 
@@ -32,7 +33,7 @@ You can then access your functions directly at `http://localhost:9000/{function_
 While the functions server is still running, open a new terminal tab and run:
 
 ```
-yarn start:app
+yarn start
 ```
 
 This will start the normal create-react-app dev server and open your app at `http://localhost:3000`.
