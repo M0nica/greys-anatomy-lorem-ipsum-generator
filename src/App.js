@@ -37,8 +37,10 @@ class LambdaCall extends Component {
   render() {
     const { loading, msg } = this.state;
 
+    let btnCopyAll = '';
+
     if (msg) {
-      new ClipboardJS(".btn-copy");
+      btnCopyAll = <button id="btn-copy-all" className="button">Copy all</button>;
     }
 
     return (
@@ -49,9 +51,12 @@ class LambdaCall extends Component {
             className="button"
           >
             {loading ? "Loading..." : "Generate Lorem Ipsum"}
-          </button>
+          </button> 
+          {msg && btnCopyAll}
         </p>
-        {msg && parse(msg, this.parseOptions)}
+        <div id="paragraphs">
+          {msg && parse(msg, this.parseOptions)}
+        </div>
       </>
     );
   }
@@ -59,6 +64,17 @@ class LambdaCall extends Component {
 
 class App extends Component {
   render() {
+    new ClipboardJS("#btn-copy-all", {
+      text: function () {
+        return [].map.call(
+          document.querySelectorAll("#paragraphs p"),
+          p => { return p.textContent }
+        ).join("\n");
+      }
+    });
+
+    new ClipboardJS(".btn-copy");
+
     return (
       <div className="App">
         <header className="App-header">
