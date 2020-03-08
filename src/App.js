@@ -24,7 +24,6 @@ function Quotes() {
       <p>
         <button onClick={handleClick} className="button">
           {loading ? "Loading..." : "Generate Lorem Ipsum"}
-          {console.log("STATE", quotes)}
         </button>
       </p>
       {msg && parse(msg)}

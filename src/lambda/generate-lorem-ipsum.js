@@ -42,7 +42,6 @@ export function generateLoremIpsum(isParagraph, count) {
 
 export function generateWords(wordCount) {
   let words = [];
-  console.log(wordCount);
 
   for (var i = 0; i < wordCount; i++) {
     words.push(WORDS[getRandomInt()]);
