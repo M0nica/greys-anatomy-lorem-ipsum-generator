@@ -1,4 +1,36 @@
-import { WORDS } from "./words";
+import WORDS from './words';
+
+export function getRandomInt() {
+  return Math.floor(Math.random() * Math.floor(WORDS.length));
+}
+
+export function generateWords(wordCount) {
+  const words = [];
+
+  for (let i = 0; i < wordCount; i += 1) {
+    words.push(WORDS[getRandomInt()]);
+  }
+  const formattedWords = `<p>${words.join(' ')}</p>`;
+
+  return formattedWords;
+}
+
+export function generateParagraphs(paragraphCount) {
+  const paragraphs = [];
+  for (let i = 0; i < paragraphCount; i += 1) {
+    paragraphs.push(generateWords(50));
+  }
+  return paragraphs;
+}
+
+export function generateLoremIpsum(isParagraph, count) {
+  if (isParagraph) {
+    return generateParagraphs(count);
+  }
+
+  return generateWords(count);
+}
+
 export function handler(event, context, callback) {
   const { queryStringParameters } = event;
   const { paragraphs = 0, words = 0 } = queryStringParameters;
@@ -16,49 +48,18 @@ export function handler(event, context, callback) {
   }
 
   let response;
+
   try {
     response = isParagraph
-      ? generateLoremIpsum(isParagraph, count).join(" ")
+      ? generateLoremIpsum(isParagraph, count).join(' ')
       : generateLoremIpsum(isParagraph, count);
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.warn(error);
   }
 
   callback(null, {
     statusCode: 200,
-    body: JSON.stringify({ msg: response })
+    body: JSON.stringify({ msg: response }),
   });
-}
-
-export function generateLoremIpsum(isParagraph, count) {
-  if (isParagraph) {
-    console.log(`Trying to construct ${count} paragraphs`);
-    return generateParagraphs(count);
-  } else {
-    console.log(`Trying to return ${count} words`);
-    return generateWords(count);
-  }
-}
-
-export function generateWords(wordCount) {
-  let words = [];
-
-  for (var i = 0; i < wordCount; i++) {
-    words.push(WORDS[getRandomInt()]);
-  }
-  const formattedWords = `<p>${words.join(" ")}</p>`;
-
-  return formattedWords;
-}
-
-export function generateParagraphs(paragraphCount) {
-  let paragraphs = [];
-  for (var i = 0; i < paragraphCount; i++) {
-    paragraphs.push(generateWords(50));
-  }
-  return paragraphs;
-}
-
-export function getRandomInt() {
-  return Math.floor(Math.random() * Math.floor(WORDS.length));
 }
