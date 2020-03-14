@@ -8,25 +8,49 @@ function Quotes() {
   const { loading, msg } = quotes;
   const api = 'generate-lorem-ipsum';
 
+  const [paragraphCount, setParagraphCount] = useState(4);
+
+  const handleChange = e => {
+    const num = parseInt(e.target.value, 10);
+    if (!Number.isNaN(num) && num >= 2 && num <= 50) {
+      setParagraphCount(num);
+    }
+  };
+
   function handleClick(event) {
     event.preventDefault();
 
     setQuotes({ ...quotes, loading: true });
-    fetch(`/.netlify/functions/${api}`)
-      .then((response) => response.json())
-      .then((json) => setQuotes({ ...quotes, msg: json.msg }))
+    fetch(`/.netlify/functions/${api}?paragraphs=${paragraphCount}`)
+      .then(response => response.json())
+      .then(json => setQuotes({ ...quotes, msg: json.msg }))
       // eslint-disable-next-line no-console
-      .catch((err) => console.warn(err))
+      .catch(err => console.warn(err))
       .finally(setQuotes({ ...quotes, loading: false }));
   }
 
   return (
     <>
-      <p>
-        <button type="submit" onClick={handleClick} className="button">
-          {loading ? 'Loading...' : 'Generate Lorem Ipsum'}
-        </button>
-      </p>
+      <form>
+        <label htmlFor="numberInput">
+          How many paragraphs should be generated?
+          <br />
+          <input
+            id="numberInput"
+            type="number"
+            min="2"
+            max="50"
+            onChange={handleChange}
+            defaultValue={paragraphCount}
+          />
+          <br />
+        </label>
+      </form>
+
+      <button type="submit" onClick={handleClick} className="button">
+        {loading ? 'Loading...' : 'Generate Lorem Ipsum'}
+      </button>
+
       {msg && parse(msg)}
     </>
   );
