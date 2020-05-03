@@ -5,30 +5,21 @@ export function getRandomInt() {
 }
 
 export function generateWords(wordCount) {
-  const words = [];
+  const words = Array(wordCount)
+    .fill()
+    .map(() => WORDS[getRandomInt()]);
 
-  for (let i = 0; i < wordCount; i += 1) {
-    words.push(WORDS[getRandomInt()]);
-  }
-  const formattedWords = `<p>${words.join(' ')}</p>`;
-
-  return formattedWords;
+  return `<p>${words.join(' ')}</p>`;
 }
 
 export function generateParagraphs(paragraphCount) {
-  const paragraphs = [];
-  for (let i = 0; i < paragraphCount; i += 1) {
-    paragraphs.push(generateWords(50));
-  }
-  return paragraphs;
+  return Array(paragraphCount)
+    .fill()
+    .map(() => generateWords(50));
 }
 
 export function generateLoremIpsum(isParagraph, count) {
-  if (isParagraph) {
-    return generateParagraphs(count);
-  }
-
-  return generateWords(count);
+  return isParagraph ? generateParagraphs(count) : generateWords(count);
 }
 
 export function handler(event, context, callback) {
@@ -51,8 +42,8 @@ export function handler(event, context, callback) {
 
   try {
     response = isParagraph
-      ? generateLoremIpsum(isParagraph, count).join(' ')
-      : generateLoremIpsum(isParagraph, count);
+      ? generateLoremIpsum(isParagraph, parseInt(count, 10)).join(' ')
+      : generateLoremIpsum(isParagraph, parseInt(count, 10));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.warn(error);
