@@ -1,6 +1,31 @@
-import { handler } from './generate-lorem-ipsum';
+import {
+  handler,
+  generateWords,
+  generateParagraphs,
+} from './generate-lorem-ipsum';
 
-test('wordgenerator', async () => {
+test('generateParagraphs', () => {
+  expect(typeof generateParagraphs(50)).toBe('string');
+
+  expect(
+    generateParagraphs(11)
+      .join(',')
+      .split('<p>')
+  ).toHaveLength(12);
+
+  expect(
+    generateParagraphs(500)
+      .join(',')
+      .split('<p>')
+  ).toHaveLength(501);
+});
+
+test('generateWords', () => {
+  expect(typeof generateWords(50)).toBe('string');
+  expect(generateWords(50).split(',')).toBeTruthy();
+});
+
+test('handler', async () => {
   const event = {
     queryStringParameters: {
       paragraphs: '4',
