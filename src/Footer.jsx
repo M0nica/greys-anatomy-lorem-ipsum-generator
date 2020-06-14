@@ -4,11 +4,9 @@ import './Footer.css';
 export default function Footer() {
   return (
     <div className="footer">
+      <p> Grey&apos;s Anatomy Lorem Ipsum Generator</p>
       <p>
-        {' '}
-        Grey&apos;s Anatomy Lorem Ipsum Generator coded by:
-        <a href="https://www.aboutmonica.com">Monica Powell</a>
-        <br />
+        By: <a href="https://www.aboutmonica.com">Monica Powell</a> &bull;{' '}
         <a href="https://github.com/M0nica/greys-anatomy-lorem-ipsum-generator">
           View Code
         </a>
