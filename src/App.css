@@ -7,14 +7,14 @@
 }
 
 .App-header {
-  background-color: #7dc4ca;
+  background-color: #7dc4ca73;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #000;
+  color: #1e2020;
 }
 
 .App-link {
@@ -24,6 +24,15 @@
 p {
   margin: 2em;
   line-height: 1.5;
+}
+
+.ipsum {
+  max-width: 800px;
+  text-align: left;
+}
+
+.inputSelection {
+  margin-top: 1em;
 }
 
 #numberInput {
