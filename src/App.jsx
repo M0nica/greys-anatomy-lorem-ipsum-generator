@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import parse from 'html-react-parser';
+import parse, { domToReact } from 'html-react-parser';
+import ClipboardJS from 'clipboard';
 import Footer from './Footer';
 import './App.css';
 
@@ -29,6 +30,32 @@ function Quotes() {
       .finally(setQuotes({ ...quotes, loading: false }));
   }
 
+  const parseOptions = {
+    replace({ name, children }) {
+      if (name === 'p') {
+        const id = `p${Math.random()
+          .toString(36)
+          .substr(2, 5)}`;
+
+        return (
+          <div className="paragraph">
+            <p id={id}>{domToReact(children)}</p>
+          </div>
+        );
+      }
+    },
+  };
+
+  let btnCopyAll = '';
+
+  if (msg) {
+    btnCopyAll = (
+      <button id="btn-copy-all" className="button" type="button">
+        Copy To Clipboard
+      </button>
+    );
+  }
+
   return (
     <>
       <form>
@@ -51,12 +78,25 @@ function Quotes() {
         {loading ? 'Loading...' : 'Generate Lorem Ipsum'}
       </button>
 
-      {msg && parse(msg)}
+      {msg && btnCopyAll}
+      <div id="paragraphs"> {msg && parse(msg, parseOptions)}</div>
     </>
   );
 }
 
 function App() {
+  new ClipboardJS('#btn-copy-all', {
+    text() {
+      return [].map
+        .call(document.querySelectorAll('#paragraphs p'), p => {
+          return p.textContent;
+        })
+        .join('\n');
+    },
+  });
+
+  new ClipboardJS('.btn-copy');
+
   return (
     <div className="App">
       <header className="App-header">
