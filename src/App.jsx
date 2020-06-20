@@ -62,14 +62,20 @@ function Quotes() {
         <label htmlFor="numberInput">
           How many paragraphs should be generated?
           <br />
-          <input
-            id="numberInput"
-            type="number"
-            min="2"
-            max="50"
-            onChange={handleChange}
-            defaultValue={paragraphCount}
-          />
+          <div className="inputSelection">
+            {' '}
+            <input
+              id="numberInput"
+              type="number"
+              min="2"
+              max="50"
+              onChange={handleChange}
+              defaultValue={paragraphCount}
+            />
+            <button type="submit" onClick={handleClick} className="button">
+              {loading ? 'Loading...' : 'Generate Lorem Ipsum'}
+            </button>
+          </div>
           <br />
         </label>
       </form>
@@ -101,8 +107,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>
-          <span id="grey-title">Grey&apos;s</span>
-          Anatomy
+          <span id="grey-title">Grey&apos;s</span> Anatomy
           <br />
           Lorem Ipsum Generator
         </h1>

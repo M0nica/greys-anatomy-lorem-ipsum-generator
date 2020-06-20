@@ -1,6 +1,8 @@
 .footer {
-  background-color: #44aab1;
+  font-weight: bold;
   padding: 1em;
+  background-color: #1e2020;
+  color: #c4e4e7;
 }
 
 p {
