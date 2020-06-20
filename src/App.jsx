@@ -80,10 +80,6 @@ function Quotes() {
         </label>
       </form>
 
-      <button type="submit" onClick={handleClick} className="button">
-        {loading ? 'Loading...' : 'Generate Lorem Ipsum'}
-      </button>
-
       {msg && btnCopyAll}
       <div id="paragraphs"> {msg && parse(msg, parseOptions)}</div>
     </>
